@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Control de Caducidades</title>
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.29/jspdf.plugin.autotable.min.js"></script>
+
+<style>
+
+body{
+font-family: Arial, sans-serif;
+margin:0;
+padding:15px;
+background:#f4f4f4;
+}
+
+.contenedor{
+background:white;
+padding:20px;
+border-radius:10px;
+max-width:900px;
+margin:auto;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+h1{
+text-align:center;
+}
+
+label{
+font-weight:bold;
+display:block;
+margin-top:10px;
+}
+
+input, select{
+width:100%;
+padding:10px;
+margin-top:5px;
+border-radius:5px;
+border:1px solid #ccc;
+}
+
+button{
+width:100%;
+padding:12px;
+margin-top:15px;
+background:#007BFF;
+color:white;
+border:none;
+border-radius:5px;
+font-size:16px;
+cursor:pointer;
+}
+
+button:hover{
+background:#0056b3;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+font-size:14px;
+}
+
+th, td{
+border:1px solid #ccc;
+padding:8px;
+text-align:center;
+}
+
+th{
+background:#f2f2f2;
+}
+
+footer{
+text-align:center;
+margin-top:30px;
+font-size:12px;
+color:gray;
+}
+
+/* RESPONSIVE CELULAR */
+
+@media (max-width:600px){
+
+table{
+font-size:12px;
+}
+
+th, td{
+padding:6px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="contenedor">
+
+<h1>Control de Caducidades</h1>
+
+<label>Código de barras</label>
+<input type="text" id="codigo">
+
+<label>Nombre del producto</label>
+<input type="text" id="producto">
+
+<label>Cantidad de piezas</label>
+<input type="number" id="piezas">
+
+<label>Lote</label>
+<input type="text" id="lote">
+
+<label>Categoría</label>
+<select id="categoria"></select>
+
+<label>Fecha de caducidad</label>
+<input type="date" id="caducidad">
+
+<button onclick="agregarProducto()">Agregar producto</button>
+
+<h2>Productos capturados</h2>
+
+<table id="tabla">
+
+<thead>
+
+<tr>
+
+<th>Código</th>
+<th>Producto</th>
+<th>Piezas</th>
+<th>Lote</th>
+<th>Días</th>
+<th>Etapa</th>
+<th>Acción</th>
+<th>Eliminar</th>
+
+</tr>
+
+</thead>
+
+<tbody></tbody>
+
+</table>
+
+<button onclick="generarPDF()">Generar PDF</button>
+
+</div>
+
+<footer>
+
+Sistema diseñado por <br><br>
+
+<b>Gilberto Serrano Ramos</b><br>
+Subgerente<br>
+Soriana Arco Norte
+
+</footer>
+
+<script src="app.js"></script>
+
+</body>
+
+</html>
